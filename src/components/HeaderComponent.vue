@@ -10,8 +10,10 @@
     </div>
 
     <button class="btn-cart">
-      <span> 500 руб. |</span>
-      <img class="btn-image" src="../assets/img/cart.svg" /> <span>0</span>
+      <span> 500 ₽</span>
+      <div class="line"></div>
+      <img class="btn-image" src="../assets/img/cart.svg" />
+      <span class="count">3</span>
     </button>
   </header>
 </template>
@@ -20,7 +22,7 @@
 
 <style scoped lang="scss">
 .header {
-  padding: 20px;
+  margin: 40px 65px 81px 75px;
   display: flex;
   justify-items: center;
   align-items: center;
@@ -44,6 +46,10 @@
         font-size: 24px;
         margin-left: 16px;
       }
+
+      .description {
+        color: #7b7b7b;
+      }
     }
   }
 
@@ -61,6 +67,18 @@
     align-items: center;
     gap: 8px;
     transition: all 0.4s ease-in-out;
+
+    .count {
+      margin-top: 2px;
+    }
+
+    .line {
+      width: 1px;
+      height: 25px;
+      background-color: rgba(255, 255, 255, 0.25);
+      margin-left: 10px;
+      margin-right: 10px;
+    }
 
     .btn-img {
       width: 16px;
