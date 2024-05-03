@@ -2,9 +2,9 @@
   <div class="categories">
     <ul class="list">
       <li
-        @click.prevent="activeIndex = i"
+        @click.prevent="$store.commit('setCategoryId', i)"
         class="item"
-        :class="activeIndex === i ? 'active' : ''"
+        :class="$store.state.filter.categoryId === i ? 'active' : ''"
         :key="i"
         v-for="(category, i) in categories"
       >
@@ -40,6 +40,11 @@ const activeIndex = ref(0);
     border-radius: 24px;
     font-weight: 700;
     cursor: pointer;
+    transition: all 0.1s ease-in;
+
+    &:hover:not(.active) {
+      background-color: #ebe8e8;
+    }
   }
   .active {
     background-color: #282828;

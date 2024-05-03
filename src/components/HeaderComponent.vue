@@ -22,7 +22,7 @@
 
 <style scoped lang="scss">
 .header {
-  margin: 40px 65px 81px 75px;
+  margin: 40px 65px 60px 75px;
   display: flex;
   justify-items: center;
   align-items: center;

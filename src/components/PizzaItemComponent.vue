@@ -3,7 +3,6 @@
     <img class="img" :src="pizza.imageUrl" alt="" />
     <h4 class="title">{{ pizza.title }}</h4>
     <div class="wrapper">
-      <!--TODO: инициализировать тип и размер пиццы-->
       <ul class="type">
         <li
           @click.prevent="activeTypeIndex = i"
@@ -49,6 +48,8 @@
 
 <script setup>
 import { ref } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
 const { pizza } = defineProps(["pizza"]);
 const typeNames = ["Тонкое", "Традиционное"];
 const activeSizeIndex = ref(0);
