@@ -24,6 +24,8 @@ defineProps({
   margin-bottom: 96px;
 }
 .title {
+  font-size: 36px;
+  font-weight: 900;
   margin-top: 32px;
   margin-bottom: 36px;
 }

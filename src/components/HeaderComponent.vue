@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <button class="btn-cart">
+    <button @click.prevent="this.$router.push('/cart')" class="btn-cart">
       <span> 500 ₽</span>
       <div class="line"></div>
       <img class="btn-image" src="../assets/img/cart.svg" />
