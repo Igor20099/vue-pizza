@@ -1,5 +1,9 @@
-<template></template>
+<template>
+  <CartEmptyComponent />
+</template>
 
-<script setup></script>
+<script setup>
+import CartEmptyComponent from "../components/CartEmptyComponent.vue";
+</script>
 
-<style></style>
+<style scoped lang="scss"></style>
