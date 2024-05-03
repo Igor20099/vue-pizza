@@ -5,13 +5,24 @@
     <div class="wrapper">
       <!--TODO: инициализировать тип и размер пиццы-->
       <ul class="type">
-        <li class="active">Тонкое</li>
-        <li>Традиционное</li>
+        <li
+          @click.prevent="activeTypeIndex = i"
+          :key="i"
+          v-for="(pizzaType, i) in pizza.types"
+          :class="activeTypeIndex === i ? 'active' : ''"
+        >
+          {{ typeNames[pizzaType] }}
+        </li>
       </ul>
       <ul class="size">
-        <li class="active">26 см</li>
-        <li>30 см</li>
-        <li>40 см</li>
+        <li
+          @click.prevent="activeSizeIndex = i"
+          :key="i"
+          v-for="(size, i) in pizza.sizes"
+          :class="activeSizeIndex === i ? 'active' : ''"
+        >
+          {{ size }} см.
+        </li>
       </ul>
     </div>
     <div class="price-wrapper">
@@ -37,7 +48,11 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
 const { pizza } = defineProps(["pizza"]);
+const typeNames = ["Тонкое", "Традиционное"];
+const activeSizeIndex = ref(0);
+const activeTypeIndex = ref(0);
 </script>
 
 <style scoped lang="scss">
