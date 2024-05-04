@@ -6,7 +6,7 @@
       <span
         @click.prevent="isVisiblePopup = !isVisiblePopup"
         class="sort-category"
-        >{{ sortNames[activeIndex] }}</span
+        >{{ store.state.filter.sortType.sortName }}</span
       >
     </p>
     <ul class="popup" :class="isVisiblePopup ? 'visible' : ''">
@@ -25,13 +25,21 @@
 
 <script setup>
 import { ref } from "vue";
+import { useStore } from "vuex";
 
 const isVisiblePopup = ref(false);
 const sortNames = ["Популярности", "Цене", "Алфавиту"];
 const activeIndex = ref(0);
+const store = useStore();
+const sortTypes = [
+  { sortName: "Популярности", sortQuery: "rating", order: "desc" },
+  { sortName: "Цене", sortQuery: "price", order: "asc" },
+  { sortName: "Алфавиту", sortQuery: "title", order: "asc" },
+];
 
 const handleSelectSort = (i) => {
   activeIndex.value = i;
+  store.commit("setSortType", sortTypes[i]);
   isVisiblePopup.value = false;
 };
 </script>
