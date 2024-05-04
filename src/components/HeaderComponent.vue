@@ -3,7 +3,7 @@
     <div class="wrapper">
       <img class="logo" src="../assets/img/logo.png" />
 
-      <div class="content">
+      <div @click.prevent="this.$router.push('/')" class="content">
         <h1 class="title">VUE PIZZA</h1>
         <p class="description">самая вкусная пицца во вселенной</p>
       </div>
@@ -43,6 +43,7 @@ import SearchComponent from "./SearchComponent.vue";
     .content {
       display: flex;
       flex-direction: column;
+      cursor: pointer;
 
       .title {
         font-size: 24px;

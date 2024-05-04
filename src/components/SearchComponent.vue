@@ -16,9 +16,9 @@
     <img
       src="../assets/img/clear.svg"
       alt="clear"
-      width="16"
+      width="24"
       class="image-clear"
-      @click.prevent="handleClearSearch"
+      @click.stop="handleClearSearch"
       v-show="searchValue"
     />
   </div>
@@ -51,11 +51,12 @@ watch(
   position: relative;
   margin: 0 auto;
   .input {
-    padding: 6px 20px;
+    padding: 10px 20px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.4);
     width: 200px;
     transition: all 0.3s ease-in-out;
+    font-size: 16px;
 
     &:focus {
       opacity: 0.7;
@@ -65,14 +66,14 @@ watch(
 
   .image-search {
     position: absolute;
-    top: 6px;
+    top: 12px;
     left: 4px;
     opacity: 0.6;
   }
 
   .image-clear {
     position: absolute;
-    top: 6px;
+    top: 8px;
     right: 4px;
     opacity: 0.6;
     cursor: pointer;
