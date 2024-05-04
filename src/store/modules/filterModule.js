@@ -7,6 +7,7 @@ export const filterModule = {
         sortParam: "rating",
         order: "desc",
       },
+      searchQuery: "",
     };
   },
 
@@ -18,6 +19,9 @@ export const filterModule = {
     setSortType(state, sortType) {
       state.sortType = sortType;
     },
+    setSearchQuery(state, searchQuery) {
+      state.searchQuery = searchQuery;
+    },
   },
   getters: {
     getCategoryId(state) {
@@ -25,6 +29,9 @@ export const filterModule = {
     },
     getSortType(state) {
       return state.sortType;
+    },
+    getSearchQuery(state) {
+      return state.searchQuery;
     },
   },
 };

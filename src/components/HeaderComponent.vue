@@ -8,7 +8,7 @@
         <p class="description">самая вкусная пицца во вселенной</p>
       </div>
     </div>
-
+    <SearchComponent />
     <button @click.prevent="this.$router.push('/cart')" class="btn-cart">
       <span> 500 ₽</span>
       <div class="line"></div>
@@ -18,7 +18,9 @@
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import SearchComponent from "./SearchComponent.vue";
+</script>
 
 <style scoped lang="scss">
 .header {

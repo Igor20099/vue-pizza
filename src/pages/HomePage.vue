@@ -18,10 +18,12 @@ const pizzas = ref([]);
 const store = useStore();
 const categoryId = computed(() => store.getters.getCategoryId);
 const sortType = computed(() => store.getters.getSortType);
+const searchQuery = computed(() => store.getters.getSearchQuery);
 
 watch(
-  [categoryId, sortType],
+  [categoryId, sortType, searchQuery],
   () => {
+    console.log(searchQuery);
     axios
       .get("https://6633ca37f7d50bbd9b4aab4a.mockapi.io/pizzas", {
         params: {
@@ -31,11 +33,13 @@ watch(
               : "",
           sortBy: store.state.filter.sortType.sortQuery,
           order: store.state.filter.sortType.order,
+          title: store.state.filter.searchQuery,
         },
       })
       .then((response) => {
         // Handle response
         pizzas.value = response.data;
+        console.log(response.data);
       })
       .catch((err) => {
         // Handle errors
