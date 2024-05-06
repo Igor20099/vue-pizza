@@ -3,24 +3,28 @@
     <div class="wrapper">
       <img class="logo" src="../assets/img/logo.png" />
 
-      <div class="content">
+      <div @click.prevent="this.$router.push('/')" class="content">
         <h1 class="title">VUE PIZZA</h1>
         <p class="description">самая вкусная пицца во вселенной</p>
       </div>
     </div>
-
-    <button class="btn-cart">
-      <span> 500 руб. |</span>
-      <img class="btn-image" src="../assets/img/cart.svg" /> <span>0</span>
+    <SearchComponent />
+    <button @click.prevent="this.$router.push('/cart')" class="btn-cart">
+      <span> 500 ₽</span>
+      <div class="line"></div>
+      <img class="btn-image" src="../assets/img/cart.svg" />
+      <span class="count">3</span>
     </button>
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import SearchComponent from "./SearchComponent.vue";
+</script>
 
 <style scoped lang="scss">
 .header {
-  padding: 20px;
+  margin: 40px 65px 60px 75px;
   display: flex;
   justify-items: center;
   align-items: center;
@@ -39,10 +43,15 @@
     .content {
       display: flex;
       flex-direction: column;
+      cursor: pointer;
 
       .title {
         font-size: 24px;
         margin-left: 16px;
+      }
+
+      .description {
+        color: #7b7b7b;
       }
     }
   }
@@ -61,6 +70,18 @@
     align-items: center;
     gap: 8px;
     transition: all 0.4s ease-in-out;
+
+    .count {
+      margin-top: 2px;
+    }
+
+    .line {
+      width: 1px;
+      height: 25px;
+      background-color: rgba(255, 255, 255, 0.25);
+      margin-left: 10px;
+      margin-right: 10px;
+    }
 
     .btn-img {
       width: 16px;
