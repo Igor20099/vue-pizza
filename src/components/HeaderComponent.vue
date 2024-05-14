@@ -10,10 +10,10 @@
     </div>
     <SearchComponent />
     <button @click.prevent="this.$router.push('/cart')" class="btn-cart">
-      <span> 500 ₽</span>
+      <span> {{ $store.state.cart.totalPrice }} ₽</span>
       <div class="line"></div>
       <img class="btn-image" src="../assets/img/cart.svg" />
-      <span class="count">3</span>
+      <span class="count">{{ $store.state.cart.count }} </span>
     </button>
   </header>
 </template>

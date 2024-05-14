@@ -4,7 +4,7 @@
     <div class="container">
       <PizzaItemComponent
         :key="pizza.id"
-        v-for="pizza in pizzas"
+        v-for="pizza in $store.state.pizza.pizzas"
         :pizza="pizza"
       />
     </div>
@@ -13,10 +13,6 @@
 
 <script setup>
 import PizzaItemComponent from "./PizzaItemComponent.vue";
-
-defineProps({
-  pizzas: Array,
-});
 </script>
 
 <style scoped lang="scss">

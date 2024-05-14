@@ -26,7 +26,7 @@
     </div>
     <div class="price-wrapper">
       <p class="price">от {{ pizza.price }} ₽</p>
-      <button class="btn">
+      <button class="btn" @click.prevent="handleAddToCart()">
         <svg
           width="12"
           height="12"
@@ -40,7 +40,7 @@
           />
         </svg>
         Добавить
-        <span class="count">0</span>
+        <span class="count" v-show="count">{{ count }}</span>
       </button>
     </div>
   </div>
@@ -54,6 +54,34 @@ const { pizza } = defineProps(["pizza"]);
 const typeNames = ["Тонкое", "Традиционное"];
 const activeSizeIndex = ref(0);
 const activeTypeIndex = ref(0);
+const count = ref(0);
+
+const handleAddToCart = () => {
+  count.value++;
+  const p = store.state.cart.cartPizzas.find((pz) => {
+    console.log(pz);
+    return pz.id === pizza.id;
+  });
+  console.log(p);
+  // console.log(pizza);
+  if (p) {
+    store.commit("addPizzaCount", p);
+  } else {
+    store.commit("addPizzaToCart", {
+      id: pizza.id,
+      imageUrl: pizza.imageUrl,
+      price: pizza.price,
+      rating: pizza.rating,
+      title: pizza.title,
+      size: pizza.sizes[activeSizeIndex],
+      types: pizza.types[activeTypeIndex],
+      count: count.value,
+    });
+  }
+
+  store.commit("setCount");
+  store.commit("setTotalPrice");
+};
 </script>
 
 <style scoped lang="scss">
