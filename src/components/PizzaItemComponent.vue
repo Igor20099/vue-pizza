@@ -64,6 +64,7 @@ const handleAddToCart = () => {
   });
   console.log(p);
   // console.log(pizza);
+  console.log(pizza.type);
   if (p) {
     store.commit("addPizzaCount", p);
   } else {
@@ -73,8 +74,8 @@ const handleAddToCart = () => {
       price: pizza.price,
       rating: pizza.rating,
       title: pizza.title,
-      size: pizza.sizes[activeSizeIndex],
-      types: pizza.types[activeTypeIndex],
+      size: pizza.sizes[activeSizeIndex.value],
+      types: typeNames[activeTypeIndex.value],
       count: count.value,
     });
   }

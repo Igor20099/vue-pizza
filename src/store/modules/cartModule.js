@@ -21,6 +21,7 @@ export const cartModule = {
         return pizza.id == p.id;
       });
       pz.count++;
+      pz.price = pz.price * pz.count;
     },
     setTotalPrice(state) {
       state.totalPrice = 0;
@@ -28,10 +29,18 @@ export const cartModule = {
         return (acc += pizza.price);
       }, 0);
     },
+    deletePizza(state, pizzaid) {
+      state.cartPizzas = state.cartPizzas.filter(
+        (pizza) => pizzaid !== pizza.id
+      );
+    },
   },
   getters: {
     getCartPizzas(state) {
       return state.cartPizzas;
+    },
+    getTotalPrice(state) {
+      return state.totalPrice;
     },
   },
 };

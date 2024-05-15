@@ -19,7 +19,10 @@
 </template>
 
 <script setup>
+import { useStore } from "vuex";
 import SearchComponent from "./SearchComponent.vue";
+
+const store = useStore();
 </script>
 
 <style scoped lang="scss">
